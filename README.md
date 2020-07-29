@@ -1,8 +1,12 @@
-# PyParts: Parts for your SciKit pipeline
+# PyPart: Parts for your SciKit pipeline
 
 ## How?
 
-
+pip/poetry/pipenv/...:
+```bash
+pipenv install pypart
+```
+Then you can:
 ```python
 pipeline, parameters = sequential('root', [
     union('features', [
