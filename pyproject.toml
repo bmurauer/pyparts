@@ -1,11 +1,12 @@
 [tool.poetry]
 name = "pypart"
-version = "0.1.0"
+version = "0.1.1"
 description = ""
-authors = ["Benjamin Murauer <b.murauer@gmail.com>"]
+authors = ["Benjamin Murauer <b.murauer@posteo.de>"]
+license = "GPL-3.0+"
 
 [tool.poetry.dependencies]
-python = "^3.8"
+python = ">=3.6.1"
 sklearn = "^0.0"
 pipelinehelper = "^0.7.6"
 

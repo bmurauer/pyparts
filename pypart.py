@@ -166,4 +166,3 @@ def union(name, parts):
         params.update(prefix_parameters(part.name, part.params))
     result = FeatureUnion(models)
     return Part(name, result, params)
-

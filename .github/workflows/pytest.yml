@@ -33,4 +33,3 @@ jobs:
       run: $HOME/.poetry/bin/poetry install
     - name: test
       run: $HOME/.poetry/bin/poetry run pytest tests
-  
