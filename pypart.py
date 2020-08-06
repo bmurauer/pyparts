@@ -124,6 +124,24 @@ def pick_one(name, parts, optional=False):
 
 
 def columns(name, parts):
+    """
+    Produces a part with a ColumnTransformer, its transformers and parameters.
+
+    Args:
+        name: string
+            the name of this part
+        parts: list of tuples
+            list of tuples (Part, column) that act as the transformers of the
+            SciKit ColumnTransformer. See the documentation of the Column
+            Transformer for details of this parameter:
+            https://scikit-learn.org/stable/modules/generated/sklearn.compose.ColumnTransformer.html
+
+
+    Returns: Part
+        a Part with a ColumnTransformer.
+
+    """
+
     transformers = []
     params = {}
     for part, column_source in parts:
