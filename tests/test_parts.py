@@ -1,4 +1,7 @@
-from pypart import Part, pick_one, sequential, union
+import pandas as pd
+from sklearn.svm import LinearSVC
+
+from pypart import Part, pick_one, sequential, union, columns
 from tests.utils import PrintingTransformer
 
 
@@ -83,7 +86,7 @@ def test_nested():
 
 
 def test_union():
-    model, params = sequential('root', [
+    _, params = sequential('root', [
         union('features', [
             Part('t0', PrintingTransformer('T0')),
             Part('t2', PrintingTransformer('T2'), {
@@ -108,3 +111,28 @@ def test_union():
     }
 
     assert params == expected_params
+
+
+def test_columns():
+    data = pd.DataFrame({
+        'column_A': [1, 2, 1],
+        'column_B': [4, 5, 3],
+    })
+    targets = [0, 1, 0]
+
+    model, params = sequential('root', [
+        columns('features', [
+            (Part('f1', PrintingTransformer(), {
+                'name': ['N', 'M']
+            }), ['column_A']),
+            (Part('f2', PrintingTransformer('T2')), ['column_B']),
+        ]),
+        Part('svm', LinearSVC())
+    ])
+
+    expected_params = {
+        'features__f1__name': ['N', 'M'],
+    }
+    assert expected_params == params
+    model.set_params(features__f1__name='T1')
+    model.fit(data, targets)

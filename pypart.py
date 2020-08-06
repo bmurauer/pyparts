@@ -1,5 +1,6 @@
 """Module containing helper parts for constructing reusable SciKit models."""
 from pipelinehelper import PipelineHelper
+from sklearn.compose import ColumnTransformer
 from sklearn.pipeline import Pipeline, FeatureUnion
 
 
@@ -120,6 +121,16 @@ def pick_one(name, parts, optional=False):
     result = PipelineHelper(models, optional=optional)
     final_params = {'selected_model': result.generate(params)}
     return Part(name, result, final_params)
+
+
+def columns(name, parts):
+    transformers = []
+    params = {}
+    for part, column_source in parts:
+        transformers.append((part.name, part.pipeline, column_source))
+        params.update(prefix_parameters(part.name, part.params))
+    result = ColumnTransformer(transformers)
+    return Part(name, result, params)
 
 
 def sequential(name, parts):
