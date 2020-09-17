@@ -329,8 +329,8 @@ category = "main"
 description = "Swaps scikit pipeline elements but also supports grid parameter configurations."
 name = "pipelinehelper"
 optional = false
-python-versions = ">=3.6.1"
-version = "0.7.6"
+python-versions = ">=3.6.1,<4.0.0"
+version = "0.7.7"
 
 [package.dependencies]
 sklearn = "*"
@@ -945,8 +945,8 @@ pandas = [
     {file = "pandas-1.1.2.tar.gz", hash = "sha256:b64ffd87a2cfd31b40acd4b92cb72ea9a52a48165aec4c140e78fd69c45d1444"},
 ]
 pipelinehelper = [
-    {file = "pipelinehelper-0.7.6-py3-none-any.whl", hash = "sha256:c78603f2a2c9e7a9ef82a8bb1de30225d449bdae369a1fe2f4cb24f7647f59f7"},
-    {file = "pipelinehelper-0.7.6.tar.gz", hash = "sha256:456c1d86f1b8211d6f22072476cd894a1ef55c27235bdabcd43f809a136708ab"},
+    {file = "pipelinehelper-0.7.7-py3-none-any.whl", hash = "sha256:4b3b1d3788b1af122ca0876efce5cfdd4ce016fd8ec506c1c7cbe232a1957266"},
+    {file = "pipelinehelper-0.7.7.tar.gz", hash = "sha256:fc0344cbd80d9c280a7802de9b7f7c54df2fd454c85225c36d185a828091653d"},
 ]
 pkginfo = [
     {file = "pkginfo-1.5.0.1-py2.py3-none-any.whl", hash = "sha256:a6d9e40ca61ad3ebd0b72fbadd4fba16e4c0e4df0428c041e01e06eb6ee71f32"},
