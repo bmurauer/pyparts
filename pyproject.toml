@@ -8,7 +8,7 @@ license = "GPL-3.0+"
 [tool.poetry.dependencies]
 python = "^3.6.1"
 sklearn = "^0.0"
-pipelinehelper = "^0.7.6"
+pipelinehelper = "^0.7.8"
 pandas = "^1.1.0"
 
 [tool.poetry.dev-dependencies]

@@ -330,7 +330,7 @@ description = "Swaps scikit pipeline elements but also supports grid parameter c
 name = "pipelinehelper"
 optional = false
 python-versions = ">=3.6.1,<4.0.0"
-version = "0.7.7"
+version = "0.7.8"
 
 [package.dependencies]
 sklearn = "*"
@@ -733,7 +733,7 @@ docs = ["sphinx", "jaraco.packaging (>=3.2)", "rst.linker (>=1.9)"]
 testing = ["jaraco.itertools", "func-timeout"]
 
 [metadata]
-content-hash = "6fc0394e76cb27708e31739d193f179d60b0441453d5d85f965065b05d6084e1"
+content-hash = "eb678442dd3616689be1a15c921c7d28054c37fad0613169c9aaa0a92baf0fd9"
 python-versions = "^3.6.1"
 
 [metadata.files]
@@ -945,8 +945,8 @@ pandas = [
     {file = "pandas-1.1.2.tar.gz", hash = "sha256:b64ffd87a2cfd31b40acd4b92cb72ea9a52a48165aec4c140e78fd69c45d1444"},
 ]
 pipelinehelper = [
-    {file = "pipelinehelper-0.7.7-py3-none-any.whl", hash = "sha256:4b3b1d3788b1af122ca0876efce5cfdd4ce016fd8ec506c1c7cbe232a1957266"},
-    {file = "pipelinehelper-0.7.7.tar.gz", hash = "sha256:fc0344cbd80d9c280a7802de9b7f7c54df2fd454c85225c36d185a828091653d"},
+    {file = "pipelinehelper-0.7.8-py3-none-any.whl", hash = "sha256:44a763ccdf04d2b4de1871d8585af6188ec66f96185a7668045076a482c58b56"},
+    {file = "pipelinehelper-0.7.8.tar.gz", hash = "sha256:657c3f3dfc73e2a0ae0aec317f8272b37c8a8274b029f50fd14d5dfb4263f1dd"},
 ]
 pkginfo = [
     {file = "pkginfo-1.5.0.1-py2.py3-none-any.whl", hash = "sha256:a6d9e40ca61ad3ebd0b72fbadd4fba16e4c0e4df0428c041e01e06eb6ee71f32"},
