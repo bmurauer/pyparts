@@ -1,6 +1,7 @@
 """Module containing helper parts for constructing reusable SciKit models."""
 from pipelinehelper import PipelineHelper
 from sklearn.compose import ColumnTransformer
+from sklearn.ensemble import StackingClassifier
 from sklearn.pipeline import Pipeline, FeatureUnion
 
 
@@ -194,4 +195,30 @@ def union(name, parts):
         models.append((part.name, part.pipeline))
         params.update(prefix_parameters(part.name, part.params))
     result = FeatureUnion(models)
+    return Part(name, result, params)
+
+
+def stack(name, final_part, parts):
+    """
+    Builds a part that uses a stacking classifier for meta-classification.
+
+    Args:
+        name: string
+            the name of this part
+        final_part: Part
+            the meta-classifier
+        parts: Part
+            the sub-parts
+
+    Returns: Part
+        a part with a StackingClassifier and all parameters of the sub-parts.
+
+    """
+    params = prefix_parameters('final_estimator', final_part.params)
+    estimators = []
+    for part in parts:
+        estimators.append((part.name, part.pipeline))
+        params.update(prefix_parameters(part.name, part.params))
+    result = StackingClassifier(estimators=estimators,
+                                final_estimator=final_part.pipeline)
     return Part(name, result, params)

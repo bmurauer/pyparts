@@ -1,7 +1,9 @@
 import pandas as pd
+from sklearn.ensemble import RandomForestClassifier
 from sklearn.svm import LinearSVC
+from sklearn.utils.tests.test_pprint import LogisticRegression
 
-from pypart import Part, pick_one, sequential, union, columns
+from pypart import Part, pick_one, sequential, union, columns, stack
 from tests.utils import PrintingTransformer
 
 
@@ -136,3 +138,25 @@ def test_columns():
     assert expected_params == params
     model.set_params(features__f1__name='T1')
     model.fit(data, targets)
+
+
+def test_stacking():
+    sub_parts = [
+        Part('svm', LinearSVC(), {'C': [1, 2]}),
+        Part('lr', LogisticRegression(), {}),
+    ]
+    meta_part = Part('rf', RandomForestClassifier(), {'n_estimators': [3, 4]})
+
+    model, parameters = stack('root', final_part=meta_part, parts=sub_parts)
+
+    expected_params = {
+        'svm__C': [1, 2],
+        'final_estimator__n_estimators': [3, 4],
+    }
+
+    assert expected_params == parameters
+
+    model.set_params(
+        svm__C=10,
+        final_estimator__n_estimators=3,
+    )
