@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "pypart"
-version = "0.1.5"
+version = "0.1.6"
 description = "Couples pipeline transformers with their parameters for easier reuse of transformers"
 authors = ["Benjamin Murauer <b.murauer@posteo.de>"]
 license = "GPL-3.0+"
